@@ -80,7 +80,16 @@ app.get('/thongTinNguoiDung', (req, res) => {
     })
 })
 
-
+//API tạo thông tin người dùng
+app.post('/thongTinNguoiDung', (req, res) => {
+    connection.connect(() => {
+        connection.query("INSERT INTO `thong_tin_nguoi_dung` (`ho_va_ten`, `anh_dai_dien`, `sdt1`, `sdt2`, `email`, `ma_gioi_tinh`, `ngay_sinh`, `dia_chi_chi_tiet`, `ma_xa`) VALUES (?)", [
+            [req.body.hoVaTen, req.body.anhDaiDien, req.body.sdt1, req.body.sdt2, req.body.email, req.body.maGioiTinh, req.body.ngaySinh, req.body.diaChiChiTiet, req.body.maXa]
+        ], (err) => {
+            res.send("Thêm thành công")
+        })
+    })
+})
 
 //API thêm tỉnh
 app.post('/tinh', (req, res) => {
