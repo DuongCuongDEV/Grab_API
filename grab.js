@@ -110,17 +110,9 @@ app.get('/timkiemuudai/:key', (req, res) => {
   })
 })
 
+//api dat chuyen
+app.post('/datchuyen', (req, res) => {
 
-
-//API check xem số điện thoại đấy tồn tại chưa
-app.get('/checkPhoneNumber', (req, res) => {
-  connection.connect(() => {
-      connection.query("SELECT * FROM thong_tin_tai_khoan where tenDangNhap = (?)", [
-          [req.body.tenDangNhap]
-      ], (err, thongtintaikhoan) => {
-          res.send(thongtintaikhoan)
-      })
-  })
 })
 
 
